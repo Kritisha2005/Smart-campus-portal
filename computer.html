@@ -1,592 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computer Labs | KIT</title>
 
-    <title>Computer Laboratories | KIT</title>
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background: #F5F0E6;
+    color: #303936;
+    line-height: 1.6;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+header, footer {
+    background: #174C4B;
+    color: white;
+    padding: 22px 8%;
+    text-align: center;
+}
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #F5F0E6;
-            color: #263B39;
-            line-height: 1.7;
-        }
+nav {
+    background: #103B3A;
+    padding: 14px 8%;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
 
-        header {
-            background: #174C4B;
-            color: white;
-            padding: 25px 8%;
-            border-bottom: 5px solid #B8734E;
-        }
+nav a {
+    color: white;
+    text-decoration: none;
+}
 
-        header h2 {
-            margin: 0;
-            color: #F5F0E6;
-        }
+.hero {
+    padding: 75px 9%;
+    color: white;
+    background: linear-gradient(90deg, rgba(15,50,48,.9), rgba(15,50,48,.4)),
+    url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=85') center/cover;
+}
 
-        nav {
-            background: #103B3A;
-            padding: 14px 8%;
-            display: flex;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
+.hero h1 {
+    font-size: 42px;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 45px 20px;
+}
 
-        nav a:hover {
-            color: #E8B18E;
-        }
+.heading {
+    text-align: center;
+    color: #174C4B;
+    margin-bottom: 25px;
+    font-size: 29px;
+}
 
-        .hero {
-            padding: 90px 9%;
-            color: white;
-            background:
-                linear-gradient(90deg, rgba(15, 50, 48, .94), rgba(15, 50, 48, .55)),
-                url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=85') center/cover;
-        }
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+}
 
-        .hero h1 {
-            font-size: 42px;
-            margin: 0 0 12px;
-        }
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 18px #0000000c;
+    border: 1px solid #e8e1d6;
+}
 
-        .hero p {
-            font-size: 18px;
-            max-width: 650px;
-        }
+.card h3 {
+    color: #174C4B;
+    margin-bottom: 10px;
+}
 
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 40px 20px;
-        }
+.timing {
+    background: white;
+    padding: 20px;
+    margin-top: 25px;
+    border-left: 5px solid #B8734E;
+    border-radius: 10px;
+}
 
-        .section {
-            margin-bottom: 35px;
-        }
+footer {
+    margin-top: 30px;
+}
 
-        .heading {
-            text-align: center;
-            color: #174C4B;
-            margin-bottom: 25px;
-            font-size: 29px;
-        }
-
-        .intro {
-            background: white;
-            padding: 28px;
-            border-radius: 14px;
-            border-left: 5px solid #174C4B;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, .05);
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: white;
-            padding: 24px;
-            border-radius: 12px;
-            box-shadow: 0 5px 18px rgba(0, 0, 0, .05);
-            border: 1px solid #E8E1D6;
-            border-top: 4px solid #174C4B;
-            transition: .3s;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            border-top-color: #B8734E;
-        }
-
-        .card h3 {
-            color: #174C4B;
-            margin: 0 0 10px;
-        }
-
-        .highlight {
-            background: #F5F0E6;
-            padding: 17px;
-            border-radius: 9px;
-            margin-top: 18px;
-            border-left: 4px solid #B8734E;
-        }
-
-        ul,
-        ol {
-            padding-left: 25px;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        .back {
-            display: inline-block;
-            background: #174C4B;
-            color: white;
-            padding: 11px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: .3s;
-        }
-
-        .back:hover {
-            background: #B8734E;
-        }
-
-        .note {
-            color: #68645C;
-            font-size: 14px;
-        }
-
-        footer {
-            background: #174C4B;
-            color: white;
-            text-align: center;
-            padding: 25px;
-            margin-top: 25px;
-        }
-
-        footer p {
-            margin: 5px;
-        }
-
-        @media(max-width: 600px) {
-            .hero {
-                padding: 65px 7%;
-            }
-
-            .hero h1 {
-                font-size: 30px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            nav {
-                gap: 15px;
-            }
-
-            .container {
-                padding: 25px 14px;
-            }
-
-            .heading {
-                font-size: 24px;
-            }
-        }
-    </style>
+@media(max-width:600px) {
+    .hero h1 {
+        font-size: 30px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <header>
-        <h2>💻 KIT Smart Campus</h2>
-        <p>Kanpur Institute of Technology</p>
-    </header>
-
-    <nav>
-        <a href="campus.html">Home</a>
-        <a href="campus.html#services">Services</a>
-        <a href="campus.html#notices">Notices</a>
-    </nav>
-
-    <!-- HERO -->
-    <section class="hero">
-        <h1>💻 Computer Laboratories</h1>
-        <p>
-            Technology-enabled learning, practical experience
-            and skill development for the future.
-        </p>
-    </section>
-
-    <main class="container">
-
-        <!-- INTRODUCTION -->
-        <section class="section intro">
-            <h2 style="color:#174C4B;">📖 About Computer Laboratories</h2>
-
-            <p>
-                Computer laboratories play an important role in
-                technical education. They provide an environment
-                where students can apply classroom concepts through
-                practical computer-based activities.
-            </p>
-
-            <p>
-                Students can use their practical learning experience
-                to understand programming, software applications,
-                computer systems and different areas of information
-                technology.
-            </p>
-
-            <p>
-                Practical sessions also help students improve
-                logical thinking, technical knowledge and
-                problem-solving abilities.
-            </p>
-
-            <div class="highlight">
-                <strong>Our Goal:</strong>
-                To support practical education and help students
-                develop technical skills through computer-based learning.
-            </div>
-        </section>
-
-        <!-- FACILITIES -->
-        <section class="section">
-            <h2 class="heading">✨ Computer Lab Facilities</h2>
-
-            <div class="cards">
-
-                <div class="card">
-                    <h3>🖥️ Computer Systems</h3>
-                    <p>
-                        Computer systems support practical academic
-                        activities, learning exercises and
-                        technology-related tasks.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>⌨️ Programming Practice</h3>
-                    <p>
-                        Students can practise writing, understanding
-                        and testing programs as part of their
-                        academic learning.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>💾 Software Learning</h3>
-                    <p>
-                        Software applications help students
-                        understand how computer programs are
-                        used to complete different tasks.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>🌐 Internet-Based Learning</h3>
-                    <p>
-                        Where access is provided, online resources
-                        can support research, learning and
-                        educational activities.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>📊 Practical Assignments</h3>
-                    <p>
-                        Students can work on practical exercises
-                        and assignments to strengthen their
-                        understanding of technical subjects.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>👨‍🏫 Faculty Guidance</h3>
-                    <p>
-                        Faculty instructions help students
-                        understand laboratory activities and
-                        complete practical work correctly.
-                    </p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- LEARNING AREAS -->
-        <section class="section">
-            <h2 class="heading">📚 Areas of Computer Learning</h2>
-
-            <div class="cards">
-
-                <div class="card">
-                    <h3>💻 Programming Languages</h3>
-                    <p>
-                        Learn programming concepts, syntax,
-                        logic building and problem-solving
-                        through coding exercises.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>🌐 Web Development</h3>
-                    <p>
-                        Understand the basics of websites,
-                        web page structure, styling and
-                        interactive web applications.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>🗄️ Database Management</h3>
-                    <p>
-                        Explore how information is organised,
-                        stored, managed and retrieved using
-                        database concepts.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>🧠 Problem Solving</h3>
-                    <p>
-                        Develop logical thinking by breaking
-                        problems into smaller steps and
-                        creating suitable solutions.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>🖱️ Computer Applications</h3>
-                    <p>
-                        Understand the use of common computer
-                        applications for academic and
-                        professional tasks.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>🔐 Computer Fundamentals</h3>
-                    <p>
-                        Study basic computer concepts,
-                        operating systems, hardware and
-                        software fundamentals.
-                    </p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- IMPORTANCE -->
-        <section class="section intro">
-            <h2 style="color:#174C4B;">🎯 Importance of Practical Learning</h2>
-
-            <p>
-                Practical learning connects theoretical knowledge
-                with real computer-based activities. It gives
-                students an opportunity to understand how
-                technical concepts work in practice.
-            </p>
-
-            <ul>
-                <li>Improves understanding of technical subjects.</li>
-                <li>Develops programming and logical thinking skills.</li>
-                <li>Encourages independent learning.</li>
-                <li>Builds confidence in using computer applications.</li>
-                <li>Supports academic projects and assignments.</li>
-                <li>Helps students explore new technologies.</li>
-            </ul>
-        </section>
-
-        <!-- LAB RULES -->
-        <section class="section">
-            <h2 class="heading">📋 Computer Lab Rules and Guidelines</h2>
-
-            <div class="intro">
-                <p>
-                    Students should maintain discipline and use
-                    computer equipment responsibly during
-                    laboratory sessions.
-                </p>
-
-                <ol>
-                    <li>Follow the instructions given by faculty or lab staff.</li>
-
-                    <li>Use computer systems only for authorised academic activities.</li>
-
-                    <li>Handle computers, keyboards and other equipment carefully.</li>
-
-                    <li>Do not change system settings without permission.</li>
-
-                    <li>Do not install unauthorised software.</li>
-
-                    <li>Keep your work organised and save files properly.</li>
-
-                    <li>Do not access another student's files without permission.</li>
-
-                    <li>Maintain cleanliness around your workstation.</li>
-
-                    <li>Report technical problems to the concerned staff.</li>
-
-                    <li>Shut down or log out of systems as instructed.</li>
-                </ol>
-
-                <div class="highlight">
-                    <strong>Important:</strong>
-                    Responsible use of computer systems helps
-                    maintain a safe and productive learning
-                    environment.
-                </div>
-            </div>
-        </section>
-
-        <!-- STUDENT RESPONSIBILITIES -->
-        <section class="section">
-            <h2 class="heading">🎓 Student Responsibilities</h2>
-
-            <div class="cards">
-
-                <div class="card">
-                    <h3>📌 Before the Lab</h3>
-                    <p>
-                        Read the practical instructions and
-                        understand the activity assigned
-                        by your faculty.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>⚙️ During the Lab</h3>
-                    <p>
-                        Complete assigned activities carefully,
-                        follow instructions and use systems
-                        responsibly.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>📝 After the Lab</h3>
-                    <p>
-                        Save your work, organise your files
-                        and follow the instructions for
-                        completing practical records.
-                    </p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SKILL DEVELOPMENT -->
-        <section class="section intro">
-            <h2 style="color:#174C4B;">🚀 Skills Developed Through Computer Labs</h2>
-
-            <p>
-                Regular participation in practical computer
-                activities can help students develop useful
-                academic and professional skills.
-            </p>
-
-            <ul>
-                <li><strong>Technical Skills:</strong> Understanding computer systems and software.</li>
-
-                <li><strong>Logical Thinking:</strong> Analysing problems and planning solutions.</li>
-
-                <li><strong>Creativity:</strong> Exploring ideas through technology and projects.</li>
-
-                <li><strong>Time Management:</strong> Completing practical tasks within assigned time.</li>
-
-                <li><strong>Teamwork:</strong> Learning to collaborate during group activities.</li>
-
-                <li><strong>Independent Learning:</strong> Exploring new concepts and improving knowledge.</li>
-            </ul>
-        </section>
-
-        <!-- CAREER -->
-        <section class="section">
-            <h2 class="heading">🌟 Computer Skills and Career Preparation</h2>
-
-            <div class="cards">
-
-                <div class="card">
-                    <h3>💻 Software Development</h3>
-                    <p>
-                        Programming knowledge and logical
-                        thinking provide a foundation for
-                        exploring software development.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>🌐 Web Technologies</h3>
-                    <p>
-                        Understanding web development helps
-                        students explore website creation
-                        and web-based applications.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>📈 Technical Projects</h3>
-                    <p>
-                        Practical assignments and projects
-                        help students apply their knowledge
-                        and build experience.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>🤝 Professional Skills</h3>
-                    <p>
-                        Communication, teamwork and
-                        problem-solving are useful skills
-                        in technical workplaces.
-                    </p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SUPPORT -->
-        <section class="section intro">
-            <h2 style="color:#174C4B;">📞 Lab Support and Assistance</h2>
-
-            <p>
-                If students face any technical difficulty
-                during a laboratory session, they should
-                inform the concerned faculty member or
-                laboratory staff.
-            </p>
-
-            <ul>
-                <li>Ask for guidance about assigned practical work.</li>
-                <li>Report computer or software-related problems.</li>
-                <li>Confirm instructions before changing system settings.</li>
-                <li>Follow the laboratory schedule communicated by faculty.</li>
-            </ul>
-
-            <p class="note">
-                Note: Specific lab timings, available software,
-                equipment and access procedures should be
-                confirmed with the concerned department.
-            </p>
-        </section>
-
-        <a class="back" href="campus.html">← Back to Campus Portal</a>
-
-    </main>
-
-    <footer>
-        <p><strong>Kanpur Institute of Technology</strong></p>
-        <p>Computer Laboratories | Practical Learning • Technology • Innovation</p>
-        <p>© 2026 KIT Smart Campus Portal</p>
-    </footer>
+<header>
+    <h2>KIT Smart Campus</h2>
+    <p>Kanpur Institute of Technology</p>
+</header>
+
+<nav>
+    <a href="campus.html">Home</a>
+    <a href="campus.html#services">Services</a>
+    <a href="campus.html#notices">Notices</a>
+</nav>
+
+<section class="hero">
+    <h1>Computer Laboratories</h1>
+    <p>Technology-enabled learning and practical experience.</p>
+</section>
+
+<main class="container">
+
+<h2 class="heading">Computer Lab Facilities</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Practical Learning</h3>
+<p>Computer laboratories support hands-on learning and practical academic activities.</p>
+</div>
+
+<div class="card">
+<h3>Programming Practice</h3>
+<p>Students can develop programming and problem-solving skills through lab sessions.</p>
+</div>
+
+<div class="card">
+<h3>Technical Learning</h3>
+<p>Academic lab activities help students understand technical concepts.</p>
+</div>
+
+<div class="card">
+<h3>Lab Discipline</h3>
+<p>Students should follow faculty instructions and maintain proper lab discipline.</p>
+</div>
+
+</div>
+
+<section class="timing">
+<h2>🕒 Computer Lab Timings</h2>
+<p><strong>Working Days:</strong> Monday to Saturday</p>
+<p><strong>Timing:</strong> As per college timetable and scheduled lab sessions.</p>
+<p>Students should confirm lab availability with their respective faculty members.</p>
+</section>
+
+</main>
+
+<footer>
+© 2026 KIT Smart Campus Portal
+</footer>
 
 </body>
-
 </html>
